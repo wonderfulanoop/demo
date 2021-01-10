@@ -1,28 +1,42 @@
 import React, {useState} from 'react';
-
+import {Card, Button} from 'react-bootstrap'
 
 
 function ToggleDarkMode(){
+	const [mode, changeMode] = useState("light");
 
+	function toggle() {
+    if(mode == "light"){
+      document.body.style.backgroundColor = '#1a1919';
+      changeMode("dark")
+    }
+    if(mode == "dark"){
+      document.body.style.backgroundColor = '#FFFFFF';
+      changeMode("light")
+    }
+  }
 
 	return(
-		
 		<div>
-			<p>
-		        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget
-		        scelerisque neque, quis scelerisque erat. Quisque venenatis molestie
-		        sapien, dapibus viverra nulla hendrerit eget. Pellentesque egestas
-		        ultrices accumsan. Ut ac magna vel ex maximus ultricies. Nulla facilisi.
-		        Suspendisse gravida sem eu odio mattis ullamcorper. Curabitur feugiat
-		        ipsum vel vulputate ultricies.
-		      </p>
-		    <p>
-		        Praesent pulvinar faucibus risus in iaculis. Sed erat felis, pretium sit
-		        amet ultricies non, porta et lacus. Curabitur a urna mi. Sed eleifend
-		        sed erat eget viverra. Quisque sit amet purus viverra massa posuere
-		        congue. Suspendisse efficitur venenatis enim, id hendrerit enim ultrices
-		        sed. Nam sed dapibus nisi.
-		    </p>			
+			<div className="row">
+				<div className="col-md-4"></div>
+				<div className="col-md-8">
+					<Card style={{ width: '40rem' }}>
+					  <Card.Img variant="top" src="https://www.thenivbible.com/wp-content/uploads/2018/08/8.13.18_TalkingwithGod-1024x683.jpg" />
+					  <Card.Body>
+					    <Card.Title className="text-center"> <i className="fa fa-star mr-1 text-success"></i>
+					    	<span className="ml-1 mr-1">Pray for You</span>
+					     <i className="fa fa-star ml-1 text-success"></i> </Card.Title>
+					    <Card.Text>
+					    	Hi,
+					    	As you might know the time is not in our favour. 
+					    	Nature is ready to crush human beings. so I am sending this pray for you - <br/>
+					     	<b>May Jesus keep you & your family safe and sound and healthy.</b>
+					    </Card.Text>
+					  </Card.Body>
+					</Card>
+				</div>
+			</div>
 		</div>
 		)
 }
